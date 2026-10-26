@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ZAKI.STUFF - Katalog Baju Modern</title>
+    <!-- Tailwind CSS (CDN) -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- Style CSS Eksternal -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="bg-gray-50 text-gray-800 antialiased min-h-screen flex flex-col justify-between">
+
+    <!-- HEADER / NAVIGATION BAR -->
+    <header class="bg-white border-b border-gray-200 sticky top-0 z-40 shadow-sm">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between gap-4">
+            
+            <!-- LOGO & TOMBOL INSTAGRAM DI SAMPINGNYA -->
+            <div class="flex items-center space-x-3 sm:space-x-4">
+                <!-- LOGO ZAKI.STUFF -->
+                <a href="#" class="flex items-center group transition transform hover:scale-105">
+                    <div class="h-12 w-auto flex items-center justify-center">
+                        <svg class="h-10 w-auto" viewBox="0 0 520 180" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <ellipse cx="260" cy="90" rx="230" ry="48" stroke="#000000" stroke-width="6" fill="none" transform="rotate(-8 260 90)"/>
+                            <path d="M 270 34 L 278 44 L 270 54 L 262 44 Z" fill="#000000"/>
+                            <path d="M 250 126 L 258 136 L 250 146 L 242 136 Z" fill="#000000"/>
+                            <text x="260" y="112" font-family="'Arial Black', 'Impact', sans-serif" font-weight="900" font-style="italic" font-size="52" fill="#000000" text-anchor="middle" letter-spacing="3">ZAKI.STUFF</text>
+                            <text x="478" y="70" font-family="sans-serif" font-weight="bold" font-size="18" fill="#000000">©</text>
+                        </svg>
+                    </div>
+                </a>
+
+                <!-- TOMBOL APLIKASI INSTAGRAM DI SAMPING LOGO -->
+                <a href="https://instagram.com/whtf_zaki" target="_blank" rel="noopener noreferrer" class="instagram-app-btn flex items-center space-x-1.5 px-3.5 py-1.5 rounded-full text-white text-xs font-bold shadow-md transition transform hover:scale-105" title="Kunjungi Instagram @whtf_zaki">
+                    <i class="fa-brands fa-instagram text-base"></i>
+                    <span>@whtf_zaki</span>
+                </a>
+            </div>
+
+            <!-- SEARCH BAR -->
+            <div class="hidden md:flex items-center space-x-6 flex-1 max-w-sm mx-4">
+                <div class="relative w-full">
+                    <input type="text" id="searchInput" placeholder="Cari baju favoritmu..." class="w-full pl-10 pr-4 py-2 bg-gray-100 border border-transparent rounded-full focus:bg-white focus:border-black focus:outline-none transition-all text-sm">
+                    <i class="fa-solid fa-magnifying-glass absolute left-3.5 top-3 text-gray-400 text-sm"></i>
+                </div>
+            </div>
+
+            <!-- CART BUTTON -->
+            <div class="flex items-center space-x-2">
+                <button onclick="toggleCartModal()" class="relative p-2.5 text-gray-700 hover:text-black hover:bg-gray-100 rounded-full transition flex items-center justify-center">
+                    <i class="fa-solid fa-bag-shopping text-xl"></i>
+                    <span id="cartBadge" class="absolute top-1 right-1 bg-black text-white text-xs w-5 h-5 rounded-full flex items-center justify-center font-bold shadow-md">0</span>
+                </button>
+            </div>
+        </div>
+
+        <!-- MOBILE SEARCH BAR -->
+        <div class="px-4 pb-3 md:hidden">
+            <div class="relative w-full">
+                <input type="text" id="searchInputMobile" placeholder="Cari baju favoritmu..." class="w-full pl-10 pr-4 py-2 bg-gray-100 border border-transparent rounded-full focus:bg-white focus:border-black focus:outline-none text-sm">
+                <i class="fa-solid fa-magnifying-glass absolute left-3.5 top-3 text-gray-400 text-sm"></i>
+            </div>
+        </div>
+    </header>
+
+    <!-- MAIN CONTENT CONTAINER -->
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 flex-grow w-full">
+        
+        <!-- HERO BANNER -->
+        <div class="relative rounded-2xl overflow-hidden bg-black text-white p-8 sm:p-12 mb-10 shadow-xl flex flex-col md:flex-row items-center justify-between">
+            <div class="z-10 max-w-xl text-center md:text-left">
+                <span class="inline-block px-3 py-1 bg-white text-black text-xs font-bold rounded-full mb-3 uppercase tracking-wider">Koleksi Terbaru</span>
+                <h1 class="text-3xl sm:text-5xl font-black tracking-tight mb-4 uppercase italic">Tampil Trendy Bersama ZAKI.STUFF</h1>
+                <p class="text-gray-300 text-sm sm:text-base mb-6">Temukan pakaian pilihan dengan kualitas bahan terbaik dan desain kekinian. Klik detail pada pakaian favorit Anda untuk melihat informasi selengkapnya!</p>
+                <div class="flex flex-wrap gap-3 justify-center md:justify-start">
+                    <a href="#catalog" class="inline-flex items-center justify-center bg-white text-black font-bold px-6 py-3 rounded-full hover:bg-gray-200 transition shadow-lg text-sm">Jelajahi Katalog <i class="fa-solid fa-arrow-down ml-2"></i></a>
+                    <a href="https://instagram.com/whtf_zaki" target="_blank" rel="noopener noreferrer" class="instagram-app-btn inline-flex items-center justify-center text-white font-bold px-6 py-3 rounded-full shadow-lg text-sm transition transform hover:scale-105"><i class="fa-brands fa-instagram mr-2 text-lg"></i> Follow @whtf_zaki</a>
+                </div>
+            </div>
+            <div class="mt-6 md:mt-0 opacity-20 md:opacity-40">
+                <i class="fa-solid fa-shirt text-9xl text-gray-100"></i>
+            </div>
+        </div>
+
+        <!-- FILTER CATEGORIES -->
+        <div id="catalog" class="flex items-center justify-between mb-6 flex-wrap gap-4">
+            <div>
+                <h2 class="text-2xl font-black text-gray-900 tracking-tight">Katalog Baju</h2>
+                <p class="text-xs text-gray-500">Menampilkan 9 produk fashion terbaik</p>
+            </div>
+
+            <!-- FILTER BUTTONS -->
+            <div class="flex items-center space-x-2 overflow-x-auto pb-2 w-full sm:w-auto">
+                <button onclick="filterCategory('All')" class="filter-btn active px-4 py-2 rounded-full text-xs font-semibold whitespace-nowrap border transition">Semua</button>
+                <button onclick="filterCategory('Atasan')" class="filter-btn px-4 py-2 rounded-full text-xs font-semibold whitespace-nowrap border border-gray-200 text-gray-600 hover:border-black transition">Atasan</button>
+                <button onclick="filterCategory('Jaket & Outer')" class="filter-btn px-4 py-2 rounded-full text-xs font-semibold whitespace-nowrap border border-gray-200 text-gray-600 hover:border-black transition">Jaket & Outer</button>
+                <button onclick="filterCategory('Gaun & Dress')" class="filter-btn px-4 py-2 rounded-full text-xs font-semibold whitespace-nowrap border border-gray-200 text-gray-600 hover:border-black transition">Gaun & Dress</button>
+                <button onclick="filterCategory('Bawahan')" class="filter-btn px-4 py-2 rounded-full text-xs font-semibold whitespace-nowrap border border-gray-200 text-gray-600 hover:border-black transition">Bawahan</button>
+            </div>
+        </div>
+
+        <!-- PRODUCT GRID (9 CARDS) -->
+        <div id="productGrid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6"></div>
+
+        <!-- EMPTY STATE IF SEARCH/FILTER NO RESULT -->
+        <div id="noResults" class="hidden text-center py-16">
+            <i class="fa-solid fa-box-open text-5xl text-gray-300 mb-4"></i>
+            <h3 class="text-lg font-bold text-gray-700">Produk Tidak Ditemukan</h3>
+            <p class="text-sm text-gray-500">Coba kata kunci atau kategori pencarian lain.</p>
+        </div>
+
+    </main>
+
+    <!-- FOOTER (TANPA TOMBOL IG DI BAWAH) -->
+    <footer class="bg-white border-t border-gray-200 mt-16 py-8">
+        <div class="max-w-7xl mx-auto px-4 text-center">
+            <div class="flex justify-center mb-4">
+                <svg class="h-8 w-auto" viewBox="0 0 520 180" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <ellipse cx="260" cy="90" rx="230" ry="48" stroke="#000000" stroke-width="8" fill="none" transform="rotate(-8 260 90)"/>
+                    <path d="M 270 34 L 278 44 L 270 54 L 262 44 Z" fill="#000000"/>
+                    <path d="M 250 126 L 258 136 L 250 146 L 242 136 Z" fill="#000000"/>
+                    <text x="260" y="112" font-family="'Arial Black', sans-serif" font-weight="900" font-style="italic" font-size="52" fill="#000000" text-anchor="middle" letter-spacing="3">ZAKI.STUFF</text>
+                </svg>
+            </div>
+            <p class="text-xs text-gray-500">&copy; 2026 ZAKI.STUFF Clothing Store. Hak Cipta Dilindungi Undang-Undang.</p>
+        </div>
+    </footer>
+
+    <!-- MODAL DETAIL PRODUK -->
+    <div id="detailModal" class="fixed inset-0 z-50 bg-black/60 backdrop-blur-sm hidden flex items-center justify-center p-4 overflow-y-auto">
+        <div class="bg-white w-full max-w-4xl rounded-2xl shadow-2xl overflow-hidden relative transform transition-all my-8 max-h-[90vh] flex flex-col md:flex-row">
+            
+            <!-- CLOSE BUTTON -->
+            <button onclick="closeModal()" class="absolute top-4 right-4 z-10 w-9 h-9 bg-white/80 backdrop-blur rounded-full flex items-center justify-center text-gray-700 hover:bg-black hover:text-white transition shadow-md">
+                <i class="fa-solid fa-xmark text-lg"></i>
+            </button>
+
+            <!-- LEFT: IMAGE GALLERY -->
+            <div class="w-full md:w-1/2 bg-gray-100 p-6 flex flex-col justify-between items-center relative">
+                <img id="modalImage" src="" alt="Detail Baju" class="w-full h-80 md:h-96 object-contain rounded-lg shadow-inner">
+            </div>
+
+            <!-- RIGHT: DETAILS & DESCRIPTIONS -->
+            <div class="w-full md:w-1/2 p-6 sm:p-8 flex flex-col justify-between overflow-y-auto">
+                <div>
+                    <!-- CATEGORY & RATING -->
+                    <div class="flex items-center justify-between mb-2">
+                        <span id="modalCategory" class="text-xs font-bold text-gray-500 uppercase tracking-wider">Kategori</span>
+                        <div class="flex items-center text-amber-400 text-xs">
+                            <i class="fa-solid fa-star"></i>
+                            <span id="modalRating" class="ml-1 font-bold text-gray-800">4.8</span>
+                        </div>
+                    </div>
+
+                    <!-- TITLE & PRICE -->
+                    <h3 id="modalTitle" class="text-2xl font-black text-gray-900 mb-2">Nama Baju</h3>
+                    <p id="modalPrice" class="text-2xl font-bold text-black mb-6">Rp 0</p>
+
+                    <hr class="mb-6">
+
+                    <!-- DESCRIPTION -->
+                    <div class="space-y-4">
+                        <div>
+                            <h4 class="text-xs font-bold uppercase text-gray-400 tracking-wider mb-1">Deskripsi Produk</h4>
+                            <p id="modalDescription" class="text-sm text-gray-600 leading-relaxed">Deskripsi lengkap mengenai bahan dan keunggulan baju ini.</p>
+                        </div>
+
+                        <!-- SPECIFICATION TABLE -->
+                        <div>
+                            <h4 class="text-xs font-bold uppercase text-gray-400 tracking-wider mb-2">Spesifikasi Detail</h4>
+                            <div class="border rounded-lg overflow-hidden text-xs">
+                                <table class="w-full text-left">
+                                    <tr class="border-b bg-gray-50">
+                                        <th class="p-2 font-semibold text-gray-600">Bahan</th>
+                                        <td id="modalMaterial" class="p-2 text-gray-800">Katun</td>
+                                    </tr>
+                                    <tr class="border-b">
+                                        <th class="p-2 font-semibold text-gray-600">Model / Potongan</th>
+                                        <td id="modalFit" class="p-2 text-gray-800">Regular Fit</td>
+                                    </tr>
+                                    <tr class="bg-gray-50">
+                                        <th class="p-2 font-semibold text-gray-600">Perawatan</th>
+                                        <td id="modalCare" class="p-2 text-gray-800">Cuci dengan mesin</td>
+                                    </tr>
+                                </table>
+                            </div>
+                        </div>
+
+                        <!-- SIZE SELECTION -->
+                        <div>
+                            <h4 class="text-xs font-bold uppercase text-gray-400 tracking-wider mb-2">Pilih Ukuran</h4>
+                            <div class="flex space-x-2" id="sizeContainer">
+                                <button onclick="selectSize(this)" class="size-btn px-3 py-1.5 border border-gray-300 rounded text-xs font-bold hover:border-black">S</button>
+                                <button onclick="selectSize(this)" class="size-btn px-3 py-1.5 border border-black bg-black text-white rounded text-xs font-bold">M</button>
+                                <button onclick="selectSize(this)" class="size-btn px-3 py-1.5 border border-gray-300 rounded text-xs font-bold hover:border-black">L</button>
+                                <button onclick="selectSize(this)" class="size-btn px-3 py-1.5 border border-gray-300 rounded text-xs font-bold hover:border-black">XL</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ADD TO CART BUTTON -->
+                <div class="mt-8 pt-4 border-t flex space-x-3">
+                    <button onclick="addToCart()" class="flex-1 bg-black text-white py-3 rounded-xl font-bold text-sm hover:bg-gray-800 transition flex items-center justify-center space-x-2 shadow-lg">
+                        <i class="fa-solid fa-cart-plus"></i>
+                        <span>Tambah ke Keranjang</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- CART SIDEBAR MODAL -->
+    <div id="cartModal" class="fixed inset-0 z-50 bg-black/50 backdrop-blur-sm hidden justify-end">
+        <div class="bg-white w-full max-w-md h-full shadow-2xl flex flex-col justify-between p-6">
+            <div>
+                <div class="flex justify-between items-center mb-6">
+                    <h3 class="text-xl font-black flex items-center gap-2">
+                        <i class="fa-solid fa-bag-shopping"></i> Keranjang Saya
+                    </h3>
+                    <button onclick="toggleCartModal()" class="text-gray-400 hover:text-black">
+                        <i class="fa-solid fa-xmark text-xl"></i>
+                    </button>
+                </div>
+                <div id="cartItems" class="space-y-4 max-h-[65vh] overflow-y-auto pr-2"></div>
+            </div>
+            
+            <div class="border-t pt-4">
+                <div class="flex justify-between items-center mb-4">
+                    <span class="text-gray-500 font-semibold text-sm">Total Belanja</span>
+                    <span id="cartTotal" class="text-xl font-black">Rp 0</span>
+                </div>
+                <button onclick="alert('Terima kasih telah berbelanja di ZAKI.STUFF!')" class="w-full bg-black text-white py-3.5 rounded-xl font-bold text-sm hover:bg-gray-800 transition shadow-lg">
+                    Checkout Sekarang
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- PENGHUBUNG KE FILE java.js -->
+    <script src="java.js"></script>
+</body>
+</html>
